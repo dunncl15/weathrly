@@ -1,7 +1,6 @@
 {
-  "name": "react-starter-kit",
+  "name": "weathrly",
   "version": "1.0.0",
-  "description": "A good enough starter kit for a React project, I guess.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
