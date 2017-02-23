@@ -1,3 +1,131 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  background-color: #333;
+  height: 100%;
+  color: #fff;
+  margin: 0;
+  font-family: 'Hind', Open Sans, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/***** Search Bar *******
+*************************/
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 2px 3px #333;
+}
+
+fieldset {
+  padding: 0;
+  border-radius: 3px;
+  border: 1px solid #5d5d5d;
+}
+
+input {
+  padding: 5px;
+  border-style: none;
+  color: #5d5d5d;
+  font-size: 1em;
+}
+
+input:focus {
+  outline: none;
+}
+
+.search {
+  width: 85%;
+}
+
+.go {
+  width: 15%;
+  padding: 10px;
+  background-color: #5d5d5d;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+/***** Weather Card ******
+*************************/
+
+.weather-card {
+  margin: 100px 10px 10px;
+}
+
+.location {
+  margin: 5px 0;
+  letter-spacing: 1.2pt;
+  text-align: center;
+}
+
+.temp-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.icon {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.temperature {
+  margin: 0 8px 0 0;
+  padding: 10px 0;
+  font-size: 5.5em;
+  font-weight: 300;
+}
+
+.temp-range {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.temp-range p {
+  display: flex;
+  align-items: center;
+  margin: 2px 4px;
+}
+
+.date {
+  margin: -30px 0 5px 0;
+  text-align: center;
+}
+
+.summary {
+  font-size: .9em;
+  text-align: center;
+}
+
+.arrow {
+  margin: 0 0 0 5px;
+  display: block;
+  height: 10px;
+  width: 10px;
+}
+
+.arrow-high {
+  transform: rotate(-90deg);
+}
+
+.arrow-low {
+  transform: rotate(90deg);
+}
