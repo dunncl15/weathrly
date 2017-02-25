@@ -164,3 +164,20 @@ input:focus {
   height: 35px;
   width: 35px;
 }
+
+/******** Welcome *******
+*************************/
+
+.welcome-wrap {
+  position: relative;
+  margin: 100px 0 0 0;
+  text-align: center;
+}
+
+.welcome {
+  margin: 3px 0;
+}
+
+.add-location {
+  margin: 0;
+}
