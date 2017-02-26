@@ -6,7 +6,7 @@ import CurrentWeather from '../lib/components/CurrentWeather';
 import Daily from '../lib/components/Daily';
 import Hourly from '../lib/components/Hourly';
 import { shallow, mount, render } from 'enzyme';
-const forecast10 = require('./forecast10.json');
+const forecast = require('./forecast10.json');
 
 
 describe('Main', () => {
