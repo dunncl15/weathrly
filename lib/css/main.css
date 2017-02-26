@@ -218,3 +218,11 @@ input:focus {
 .add-location {
   margin: 0;
 }
+
+/******** Errors *******
+*************************/
+
+.errors {
+  margin: 100px 0 0 0;
+  text-align: center;
+}
