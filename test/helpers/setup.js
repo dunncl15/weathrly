@@ -11,3 +11,10 @@ global.document = require('jsdom').jsdom(
 global.window = document.defaultView;
 global.navigator = window.navigator;
 global.$ = global.jQuery = makeJQ(window);
+
+if (!global.window.localStorage) {
+ localStorage = {
+   getItem() { return '[]'; },
+   setItem() {}
+ }
+}
