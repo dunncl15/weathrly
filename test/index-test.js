@@ -6,7 +6,7 @@ import CurrentWeather from '../lib/components/CurrentWeather';
 import Daily from '../lib/components/Daily';
 import Hourly from '../lib/components/Hourly';
 import { shallow, mount, render } from 'enzyme';
-const forecast10 = require('./forecast10.json');
+const forecast = require('./forecast10.json');
 
 
 describe('Main', () => {
@@ -31,14 +31,14 @@ describe('Weather', () => {
     searchInput.simulate('change', { target: { value: 'charlieville' } });
     expect(wrapper.state().location).to.equal('charlieville');
   });
-  // it('should take location and submit it and get an object', () => {
-  //   const wrapper = shallow(<Weather/>);
-  //   const searchInput = wrapper.find('.search');
-  //   const submit = wrapper.find('.go');
-  //   expect(wrapper.state().location).to.equal('');
-  //   searchInput.simulate('change', { target: { value: 'Denver, CO' } });
-  //   expect(wrapper.state().location).to.equal('Denver, CO');
-  //   submit.simulate('click');
-  //   expect(wrapper.state().weather.length).to.equal(1);
-  // });
+  it('should take location and submit it and get an object', () => {
+    const wrapper = shallow(<Weather/>);
+    const searchInput = wrapper.find('.search');
+    const submit = wrapper.find('.go');
+    expect(wrapper.state().location).to.equal('');
+    searchInput.simulate('change', { target: { value: 'Denver, CO' } });
+    expect(wrapper.state().location).to.equal('Denver, CO');
+    submit.simulate('click');
+    expect(wrapper.state().weather.length).to.equal(1);
+  });
 });
