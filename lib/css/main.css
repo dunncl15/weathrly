@@ -56,6 +56,38 @@ input:focus {
   text-transform: uppercase;
 }
 
+.go:hover {
+  background-color: #00671a;
+}
+
+.ui-menu,
+.ui-widget,
+.ui-autocomplete,
+.ui-widget-content,
+.ui-front {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.ui-menu {
+  margin-top: 15px;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+  list-style: none;
+  opacity: .7;
+}
+
+.ui-menu-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #707070;
+  cursor: pointer;
+}
+
+.ui-helper-hidden-accessible {
+  visibility: hidden;
+}
+
 /***** Weather Card ******
 *************************/
 
@@ -188,7 +220,7 @@ input:focus {
   display: flex;
   align-items: center;
   padding: 5px 0;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #a1a1a1;
 }
 
 .time {
