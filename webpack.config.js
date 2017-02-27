@@ -22,5 +22,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
+    alias: {
+      'jquery-ui': 'jquery-ui-dist/jquery-ui.js',
+    },
   },
 };
