@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   entry: {
     main: ['babel-polyfill', './lib/index.js'],
@@ -26,4 +28,10 @@ module.exports = {
       'jquery-ui': 'jquery-ui-dist/jquery-ui.js',
     },
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
+  ],
 };
