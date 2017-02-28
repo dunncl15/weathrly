@@ -9,7 +9,10 @@ import { shallow, mount, render } from 'enzyme';
 // const Data = require('./forecast10.json');
 import $ui from 'jquery-ui';
 import sinon from 'sinon';
+import Welcome from '../lib/components/Welcome';
+import NotFound from '../lib/components/Error';
 
+const Data = require('./forecast10.json');
 
 describe('Main', () => {
   it('should have a component called Weather', () => {
@@ -19,7 +22,6 @@ describe('Main', () => {
 });
 
 describe('Weather', () => {
-  const Data = require('./forecast10.json');
 
   it('should have two state properties by default', () => {
     const wrapper = shallow(<Weather/>);
@@ -64,23 +66,28 @@ describe('Weather', () => {
     expect(obj.handleSubmit.callCount).to.equal(1);
   });
 
-  it.only('Renders all Matching Elements', () => {
-    const wrapper = shallow(<Weather/>);
-    let current = <CurrentWeather/>;
-    expect(wrapper.find({ current }).render().find('.weather-card')).to.have.length(1);
+  it('Should start with welcome page', () => {
+    const wrapper = shallow(<Weather />);
+    expect(wrapper.find(Welcome)).to.have.length(1);
   });
 
-  it('Should have welcome page', () => {
+  it('Renders temps to page when weather has an object', () => {
     const wrapper = shallow(<Weather/>);
-    wrapper.state().weather = [];
-    expect(wrapper.containsMatchingElement(
-      <Welcome/>
-    ));
+    const weather = [Data];
+    wrapper.setState({ weather: weather });
+    const current = <CurrentWeather/>;
+    expect(wrapper.find(CurrentWeather)).to.have.length(1);
+    expect(wrapper.find(Hourly)).to.have.length(1);
+    expect(wrapper.find(Daily)).to.have.length(1);
   });
 
-  it.skip('', () => {
-    const wrapper = shallow(<Weather weather={ Data }/>);
+  it('should render Error when location is invalid', () => {
+    const wrapper = shallow(<Weather/>);
+    const searchInput = wrapper.find('.search');
+    expect(wrapper.setState({ location: 'asdf' }));
+    expect(wrapper.find(NotFound)).to.have.length(1);
   });
+
   it.skip('', () => {
     const wrapper = shallow(<Weather weather={ Data }/>);
   });
@@ -98,10 +105,9 @@ describe('Weather', () => {
 });
 
 describe('CurrentWeather', () => {
-  const Data = require('./forecast10.json');
 
-  it.skip('should use object to fill in current weather', () => {
-    const wrapper = shallow(<Weather weather={ Data }/>);
+  it('should use object to fill in current weather', () => {
+    // const wrapper = shallow(<Weather weather={ Data }/>);
     // console.log(wrapper.prop().weather);
   });
 });

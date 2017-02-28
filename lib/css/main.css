@@ -259,3 +259,11 @@ input:focus {
   margin: 100px 0 0 0;
   text-align: center;
 }
+
+/******** Media Queries *******
+*************************/
+
+@media (min-width: 700px) and (orientation: landscape) {
+  
+
+}
