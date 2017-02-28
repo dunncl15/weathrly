@@ -44,10 +44,6 @@ input {
   font-size: 1em;
 }
 
-input:focus {
-  outline: none;
-}
-
 .search {
   width: 85%;
   padding: 10px 5px;
