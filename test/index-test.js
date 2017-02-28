@@ -13,7 +13,13 @@ import NotFound from '../lib/components/Error';
 import { shallow, mount, render } from 'enzyme';
 import sinon from 'sinon';
 const Data = require('./forecast10.json');
+
 import $ui from 'jquery-ui';
+import sinon from 'sinon';
+import Welcome from '../lib/components/Welcome';
+import NotFound from '../lib/components/Error';
+
+const Data = require('./forecast10.json');
 
 describe('Main', () => {
   it('should have a component called Weather', () => {
@@ -23,6 +29,7 @@ describe('Main', () => {
 });
 
 describe('Weather', () => {
+
   it('should have two state properties by default', () => {
     const wrapper = shallow(<Weather/>);
     const weatherState = wrapper.state();
@@ -69,6 +76,46 @@ describe('Weather', () => {
   it('Should start with welcome page', () => {
     const wrapper = shallow(<Weather />);
     expect(wrapper.find(Welcome)).to.have.length(1);
+  });
+
+  it('Renders temps to page when weather has an object', () => {
+    const wrapper = shallow(<Weather/>);
+    const weather = [Data];
+    wrapper.setState({ weather: weather });
+    const current = <CurrentWeather/>;
+    expect(wrapper.find(CurrentWeather)).to.have.length(1);
+    expect(wrapper.find(Hourly)).to.have.length(1);
+    expect(wrapper.find(Daily)).to.have.length(1);
+  });
+
+  it('should render Error when location is invalid', () => {
+    const wrapper = shallow(<Weather/>);
+    const searchInput = wrapper.find('.search');
+    expect(wrapper.setState({ location: 'asdf' }));
+    expect(wrapper.find(NotFound)).to.have.length(1);
+  });
+
+  it.skip('', () => {
+    const wrapper = shallow(<Weather weather={ Data }/>);
+  });
+  it.skip('', () => {
+    const wrapper = shallow(<Weather weather={ Data }/>);
+  });
+  it.skip('', () => {
+    const wrapper = shallow(<Weather weather={ Data }/>);
+  });
+  it.skip('', () => {
+    // const currentProps = wrapper.find('weather').props()
+    const wrapper = shallow(<Daily weather={ Data }/>);
+    // expect(currentProps).to.have.property('city', 'Parker')
+  });
+});
+
+describe('CurrentWeather', () => {
+
+  it('should use object to fill in current weather', () => {
+    // const wrapper = shallow(<Weather weather={ Data }/>);
+    // console.log(wrapper.prop().weather);
   });
 
   it('Renders temps to page when weather has an object', () => {
