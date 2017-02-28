@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Signika+Negative|Shrikhand');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #333;
+  margin: 0;
+  background-color: rgba(29, 50, 68, 1);
   height: 100%;
   color: #fff;
-  margin: 0;
-  font-family: 'Hind', Open Sans, sans-serif;
+  font-family: 'Signika Negative', sans-serif;
   font-size: 16px;
   font-weight: 300;
 }
@@ -16,16 +18,20 @@ body {
 *************************/
 
 .nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: fixed;
   top: 0;
   width: 100%;
   padding: 10px;
-  background-color: #fff;
-  box-shadow: 0 3px 2px 3px #333;
+  background-color: #101b27;
+  border-bottom: 2px solid #5d5d5d;
   z-index: 3;
 }
 
 fieldset {
+  margin: 5px 0;
   padding: 0;
   border-radius: 3px;
   border: 1px solid #5d5d5d;
@@ -44,6 +50,7 @@ input:focus {
 
 .search {
   width: 85%;
+  padding: 10px 5px;
 }
 
 .go {
@@ -57,7 +64,22 @@ input:focus {
 }
 
 .go:hover {
-  background-color: #670600;
+  background-color: #ffbb0d;
+}
+
+.app-name {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin: 0;
+  font-family: 'Shrikhand', sans-serif;
+}
+
+.app-name img {
+  display: block;
+  height: 40px;
+  width: 40px;
+  margin: 0 10px 0 0;
 }
 
 .ui-menu,
@@ -70,12 +92,12 @@ input:focus {
 }
 
 .ui-menu {
+  position: absolute;
   margin-top: 15px;
-  padding: 0;
-  background-color: #fff;
-  color: #333;
+  padding: 0 10px;
+  background-color: #272d34;
+  color: #ccc;
   list-style: none;
-  opacity: .7;
 }
 
 .ui-menu-item {
@@ -92,32 +114,49 @@ input:focus {
 *************************/
 
 .weather-card {
-  margin: 100px 10px 10px;
+  margin: 130px auto 10px;
+  padding: 10px 15px;
+  max-width: 310px;
+  background-color: rgba(29, 50, 68, .6);
+  border-radius: 10px;
 }
 
 .location {
-  margin: 5px 0;
+  margin: 5px 0 0 0;
+  padding: 0 0 5px 0;
   letter-spacing: 1.2pt;
-  text-align: center;
+  border-bottom: 1px solid #fff;
+  text-transform: uppercase;
+}
+
+.date-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #fff;
+}
+
+.date-time p {
+  margin: 0;
 }
 
 .temp-wrap {
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
+  flex-direction: column;
   margin: 0 auto;
+  border-bottom: 1px solid #fff;
+}
+
+.main-temp {
+  display: flex;
 }
 
 .icon-current {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  order: 2;
   margin: auto;
-  width: 35px;
-  height: 35px;
+  width: 65px;
+  height: 65px;
 }
 
 .temperature {
@@ -127,50 +166,44 @@ input:focus {
   font-weight: 300;
 }
 
-.temp-range {
+.condition {
+  margin: -20px 0 10px 0;
+  font-size: .9em;
+}
+
+.temps {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 5px 0;
+}
+
+.high,
+.low {
   display: flex;
   align-items: center;
-}
-
-.temps,
-.symbols {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.temps p {
+  font-size: 1.2em;
   margin: 0;
-}
-
-.symbols {
-  margin: 0 0 0 7px;
 }
 
 .arrow {
   display: block;
-  height: 10px;
-  width: 10px;
+  height: 17px;
+  width: 17px;
 }
 
 .arrow-high {
   transform: rotate(-90deg);
-  margin: 0 0 8px 0;
+  margin: 0 5px;
 }
 
 .arrow-low {
   transform: rotate(90deg);
-  margin: 8px 0 0 0;
-}
-
-.date {
-  margin: -30px 0 5px 0;
-  text-align: center;
+  margin: 0 5px;
 }
 
 .summary {
   font-size: .9em;
-  text-align: center;
 }
 
 /**** 10 Day Forecast ****
@@ -187,10 +220,11 @@ input:focus {
 .title {
   margin: 30px 0 0 0;
   padding: 3px 0;
-  background-color: #fff;
-  color: #414141;
+  background-color: #101b27;
+  color: #fff;
   font-weight: 400;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .day {
@@ -211,7 +245,7 @@ input:focus {
 
 .hourly-forecast {
   list-style: none;
-  width: 80%;
+  max-width: 310px;
   margin: 10px auto;
   padding: 0;
 }
@@ -219,8 +253,12 @@ input:focus {
 .hour {
   display: flex;
   align-items: center;
-  padding: 5px 0;
-  border-bottom: 2px solid #a1a1a1;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: rgba(29, 50, 68, .6);
+  border-radius: 5px;
+  border-bottom: 2px solid rgba(40, 72, 100, 1);
+  border-bottom: 2px solid #9e9e9e;
 }
 
 .time {
@@ -239,7 +277,8 @@ input:focus {
 
 .welcome-wrap {
   position: relative;
-  margin: 100px 0 0 0;
+  margin: 150px 0 0 0;
+  font-family: 'Shrikhand', sans-serif;
   text-align: center;
 }
 
@@ -263,7 +302,55 @@ input:focus {
 /******** Media Queries *******
 *************************/
 
-@media (min-width: 700px) and (orientation: landscape) {
-  
+@media screen and (min-width: 700px)  {
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  fieldset {
+    margin-left: auto;
+    width: 55%;
+  }
+
+  .app-name {
+    position: absolute;
+    left: 15px;
+  }
+
+  .main-content {
+    margin: 80px 0 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+
+  .weather-card {
+    margin: 25px 0 0 0;
+  }
+
+  .hourly-section {
+    margin: 15px;
+    width: 300px;
+  }
+
+  .hourly-section .title,
+  .hour {
+    margin: 0;
+  }
+
+  .hourly-forecast {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    overflow: auto;
+  }
+
+  .extended-forecast {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 
 }

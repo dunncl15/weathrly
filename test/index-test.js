@@ -71,13 +71,19 @@ describe('Weather', () => {
     expect(wrapper.find(Welcome)).to.have.length(1);
   });
 
-  it('Renders temps to page when weather has an object', () => {
-    const wrapper = shallow(<Weather/>);
+  it('Renders hourly forecast to the page', () => {
     const weather = [Data];
+    const wrapper = shallow(<Weather weather={ weather }/>);
+    const current = shallow(<CurrentWeather weather={ weather }/>);
+    expect(current.find(Hourly)).to.have.length(1);
+  });
+
+  it('Renders temps to page when weather has an object', () => {
+    const weather = [Data];
+    const wrapper = shallow(<Weather/>);
     wrapper.setState({ weather: weather });
     const current = <CurrentWeather/>;
     expect(wrapper.find(CurrentWeather)).to.have.length(1);
-    expect(wrapper.find(Hourly)).to.have.length(1);
     expect(wrapper.find(Daily)).to.have.length(1);
   });
 });
@@ -89,7 +95,6 @@ describe('CurrentWeather', () => {
     wrapper.setState({ weather: weather });
     const current = <CurrentWeather/>;
     expect(wrapper.find(CurrentWeather)).to.have.length(1);
-    expect(wrapper.find(Hourly)).to.have.length(1);
     expect(wrapper.find(Daily)).to.have.length(1);
   });
 
@@ -104,21 +109,14 @@ describe('CurrentWeather', () => {
     const weather = [Data];
     const wrapper = shallow(<CurrentTemp weather={ weather }/>);
     const temp = wrapper.find('.temperature');
-    expect(temp.text()).to.equal('48°');
+    expect(temp.text()).to.equal('48°F');
   });
 
   it('Should display the projected high and low temperatures', () => {
     const weather = [Data];
     const wrapper = shallow(<HighLow weather={ weather }/>);
     const temps = wrapper.find('.temps');
-    expect(temps.text()).to.equal('51°25°');
-  });
-
-  it('Should display the projected high and low temperatures', () => {
-    const weather = [Data];
-    const wrapper = shallow(<HighLow weather={ weather }/>);
-    const temps = wrapper.find('.temps');
-    expect(temps.text()).to.equal('51°25°');
+    expect(temps.text()).to.equal(' 51° 25°');
   });
 
   it('Should display the forecast summary for the day', () => {
