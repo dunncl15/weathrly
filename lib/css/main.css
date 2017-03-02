@@ -50,6 +50,7 @@ input {
 }
 
 .go {
+  -webkit-appearance: none;
   padding: 10px;
   width: 15%;
   background-color: #5d5d5d;
