@@ -29717,7 +29717,7 @@
 	            'h1',
 	            { className: 'app-name' },
 	            _react2.default.createElement('img', { src: 'lib/images/logo.png', alt: 'logo image' }),
-	            'Weathrly'
+	            'Weatherly'
 	          ),
 	          _react2.default.createElement(
 	            'fieldset',
@@ -40349,7 +40349,7 @@
 	    _react2.default.createElement(
 	      "h2",
 	      { className: "welcome" },
-	      "Welcome to Weathrly"
+	      "Welcome to Weatherly"
 	    ),
 	    _react2.default.createElement(
 	      "p",
